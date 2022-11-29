@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Mitra;
 use App\Http\Controllers\Controller;
+use App\Models\Mitra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Session;
@@ -42,13 +42,13 @@ class MitraController implements ControllerInterface
     {
         try {
             if (Mitra::create($request->all())) {
-                Session::flash('success', "Berhasil Simpan");
-            } else {
-                Session::flash('error', "Gagal Simpan");
+                Session::flash('success',"Berhasil Simpan");
+            }else{
+                Session::flash('error',"Gagal Simpan");
             }
             return redirect()->route('mitra.index');
         } catch (\Throwable $th) {
-            Session::flash('error', "Periksa Kembali isian");
+            Session::flash('error',"Periksa kembali isian");
             return redirect()->back();
         }
     }
@@ -88,14 +88,17 @@ class MitraController implements ControllerInterface
     {
         try {
             $data = Mitra::findOrFail(Crypt::decrypt($id));
+            $data->update($request->all());
+            Session::flash('success',"Berhasil Update");
+            return redirect()->route('mitra.index');
             if ($data->update($request->all())) {
-                Session::flash('success', "Berhasil Simpan");
-            } else {
-                Session::flash('error', "Gagal Simpan");
+                Session::flash('success',"Berhasil Edit");
+            }else{
+                Session::flash('error',"Gagal Edit");
             }
             return redirect()->route('mitra.index');
         } catch (\Throwable $th) {
-            Session::flash('error', "Periksa Kembali isian");
+            Session::flash('error',"Periksa kembali isian");
             return redirect()->back();
         }
     }
@@ -110,9 +113,9 @@ class MitraController implements ControllerInterface
     {
         $data = Mitra::findOrFail(Crypt::decrypt($id));
         if ($data->delete()) {
-            Session::flash('success', "Berhasi Delete");
-        } else {
-            Session::flash('error', "Gagal Delete");
+            Session::flash('success',"Berhasil Hapus");
+        }else{
+            Session::flash('error',"Gagal Hapus");
         }
         return redirect()->route('mitra.index');
     }

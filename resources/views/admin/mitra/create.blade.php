@@ -1,13 +1,13 @@
 @extends('admin.layout')
 @section('content')
-<form action="{{route('mitra.store)}}" method="post">
-    {{ csrf_field() }}
+    <form action="{{route('mitra.store')}}" method="post">
+    {{csrf_field()}}
     <div class="content">
         <div class="row">
             <div class="col-lg-6">
-                <div class="card card-defaiult">
+                <div class="card card-default">
                     <div class="card-header">
-                        <h2> Tambah mitra</h2>
+                        <h2>Tambah Mitra</h2>
                     </div>
                 </div>
                 @include('admin.partials.flash')
@@ -17,14 +17,14 @@
                         <input type="text" name="name" class="form-control" value="{{old('name')}}">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Nama Admin Pt</label>
-                        <input type="text" name="namaAdminPt" class="form-control" value="{{old('namaAdminPt')}}">
+                        <label class="form-label">Nama Admin PT</label>
+                        <input type="text" name="namaAdminPt" class="form-control" value="{{old('namaAdminPT')}}">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Jenis Kelamin</label>
                         <select class="form-control" name="jk">
-                            <option>pilih jenis kelamin</option>
-                            <option value="Laki-laki" {{old('jk') == "Laki-laki" ? "selected" : ""}}>Laki-laki</option>
+                            <option>Pilih Jenis Kelamin</option>
+                            <option value="Laki-Laki" {{old('jk') == "Laki-laki" ? "selected" : ""}}>Laki-Laki</option>
                             <option value="Perempuan" {{old('jk') == "Perempuan" ? "selected" : ""}}>Perempuan</option>
                         </select>
                     </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Email</label>
-                        <input type="text" name="email" class="form-control" value="{{old('email')}}">
+                        <input type="email" name="email" class="form-control" value="{{old('email')}}">
                     </div>
                     <div class="form-footer pt-5 border-top">
                         <button type="submit" class="btn btn-primary btn-default">Simpan</button>
@@ -44,5 +44,5 @@
             </div>
         </div>
     </div>
-</form>
+    </form>
 @endsection
