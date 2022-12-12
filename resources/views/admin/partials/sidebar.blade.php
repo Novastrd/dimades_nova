@@ -27,16 +27,28 @@
                                 <span class="nav-text">Dashboard</span> <b class="caret"></b>
                             </a>
                         </li>
-                        <li class="{{ Request::path()=="admin/>mitra" ? 'active' : ''}}">
+                        <li class="{{ Request::path()=="admin/mitra" ? 'active' : ''}}">
                             <a class="sidenav-item-link" href="{{ route('mitra.index') }}" aria-expanded="false" aria-controls="dashboard">
                                 <i class="mdi mdi-view-dashboard-outline"></i>
                                 <span class="nav-text">Mitra</span> <b class="caret"></b>
                             </a>
                         </li>
-                        <li class="{{ Request::path()=="admin/>kategori" ? 'active' : ''}}">
+                        <li class="{{ Request::path()=="admin/kategori" ? 'active' : ''}}">
                             <a class="sidenav-item-link" href="{{route('kategori.index')}}" aria-expanded="false" aria-controls="dashboard">
                                 <i class="mdi mdi-view-dashboard-outline"></i>
                                 <span class="nav-text">Kategori</span> <b class="caret"></b>
+                            </a>
+                        </li>
+                        <li class="{{ Request::path()=="admin/food" ? 'active' : ''}}">
+                            <a class="sidenav-item-link" href="{{route('food.index')}}" aria-expanded="false" aria-controls="dashboard">
+                                <i class="mdi mdi-view-dashboard-outline"></i>
+                                <span class="nav-text">Makanan & Minuman</span> <b class="caret"></b>
+                            </a>
+                        </li>
+                        <li class="{{ Request::path()=="admin/item" ? 'active' : ''}}">
+                            <a class="sidenav-item-link" href="{{route('item.index')}}" aria-expanded="false" aria-controls="dashboard">
+                                <i class="mdi mdi-view-dashboard-outline"></i>
+                                <span class="nav-text">Item</span> <b class="caret"></b>
                             </a>
                         </li>
                     </ul>
